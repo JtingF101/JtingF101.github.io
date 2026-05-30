@@ -2,7 +2,7 @@ import { readFile, writeFile, access } from "node:fs/promises";
 import { constants } from "node:fs";
 
 const [, , rawTitle, rawCategory = "AI发展"] = process.argv;
-const categories = ["AI发展", "智能体", "机器人", "潜水新闻"];
+const categories = ["AI发展", "智能体", "机器人", "潜水新闻", "背包旅行"];
 
 if (!rawTitle) {
   console.error('Usage: node scripts/new-post.mjs "文章标题" "智能体"');

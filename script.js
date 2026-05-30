@@ -91,7 +91,7 @@ async function openPost(slug) {
   const post = posts.find((item) => item.slug === slug);
   if (!post) return;
 
-  const response = await fetch(post.file);
+  const response = await fetch(`/${post.file}`);
   const markdown = await response.text();
   postContent.innerHTML = parseMarkdown(markdown);
   readingTime.textContent = `${post.category} · ${post.reading}`;
@@ -100,7 +100,7 @@ async function openPost(slug) {
 }
 
 async function loadPosts() {
-  const response = await fetch("posts.json");
+  const response = await fetch("/posts.json");
   posts = await response.json();
   renderPosts();
 }

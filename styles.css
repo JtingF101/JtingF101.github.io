@@ -76,15 +76,14 @@ a {
   font-weight: 800;
 }
 
-.brand-mark {
-  display: grid;
+.brand-avatar {
+  display: block;
   width: 36px;
   height: 36px;
-  place-items: center;
   border-radius: 8px;
-  color: white;
-  background: linear-gradient(135deg, var(--teal), var(--coral));
-  letter-spacing: 0;
+  object-fit: cover;
+  object-position: 34% 68%;
+  box-shadow: 0 8px 18px rgba(23, 33, 31, 0.18);
 }
 
 .nav {
@@ -156,7 +155,7 @@ h3 {
 
 .hero-lede,
 .about-copy p,
-.lab-section p,
+.add-post-section p,
 .radar-section p,
 .section-note {
   color: #44524e;
@@ -357,7 +356,7 @@ h3 {
 .research-section,
 .timeline-section,
 .posts-section,
-.lab-section,
+.add-post-section,
 .changelog-section {
   border-top: 1px solid var(--line);
 }
@@ -456,7 +455,7 @@ h3 {
 
 .radar-board {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 14px;
   padding: 18px;
   border: 1px solid var(--line);
@@ -471,9 +470,14 @@ h3 {
 
 .radar-board article {
   position: relative;
+  grid-column: span 3;
   min-height: 210px;
   padding: 20px;
   overflow: hidden;
+}
+
+.radar-board article:last-child {
+  grid-column: 2 / span 4;
 }
 
 .radar-board article::before {
@@ -666,7 +670,7 @@ h3 {
   white-space: nowrap;
 }
 
-.lab-section {
+.add-post-section {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 34px;
@@ -773,7 +777,7 @@ h3 {
 
   .hero,
   .about-grid,
-  .lab-section,
+  .add-post-section,
   .radar-section,
   .changelog-section {
     grid-template-columns: 1fr;
@@ -786,9 +790,17 @@ h3 {
   .timeline,
   .post-grid,
   .metric-row,
-  .research-grid,
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+
   .radar-board {
     grid-template-columns: 1fr;
+  }
+
+  .radar-board article,
+  .radar-board article:last-child {
+    grid-column: auto;
   }
 
   .post-tools {
