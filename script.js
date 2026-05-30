@@ -3,8 +3,11 @@ const reader = document.querySelector("#reader");
 const postContent = document.querySelector("#post-content");
 const closeReader = document.querySelector("#close-reader");
 const readingTime = document.querySelector("#reading-time");
+const postSearch = document.querySelector("#post-search");
+const postCount = document.querySelector("#post-count");
 const chips = [...document.querySelectorAll("[data-filter]")];
 let posts = [];
+let activeFilter = "all";
 
 const escapeHtml = (value) =>
   value.replace(/[&<>"']/g, (char) => ({
@@ -64,17 +67,24 @@ function parseMarkdown(markdown) {
   return html.join("");
 }
 
-function renderPosts(filter = "all") {
-  const visiblePosts = filter === "all" ? posts : posts.filter((post) => post.category === filter);
+function renderPosts() {
+  const query = postSearch.value.trim().toLowerCase();
+  const visiblePosts = posts.filter((post) => {
+    const matchesFilter = activeFilter === "all" || post.category === activeFilter;
+    const haystack = `${post.title} ${post.category} ${post.excerpt}`.toLowerCase();
+    return matchesFilter && (!query || haystack.includes(query));
+  });
+
+  postCount.textContent = `${visiblePosts.length} 篇可读笔记`;
   postList.innerHTML = visiblePosts.map((post) => `
     <article class="post-card">
-      <span class="post-tag">${post.category}</span>
-      <h3>${post.title}</h3>
-      <p class="post-meta">${post.date} · ${post.reading}</p>
-      <p>${post.excerpt}</p>
-      <button class="button ghost" type="button" data-post="${post.slug}">阅读</button>
+      <span class="post-tag">${escapeHtml(post.category)}</span>
+      <h3>${escapeHtml(post.title)}</h3>
+      <p class="post-meta">${escapeHtml(post.date)} · ${escapeHtml(post.reading)}</p>
+      <p>${escapeHtml(post.excerpt)}</p>
+      <button class="button ghost" type="button" data-post="${escapeHtml(post.slug)}">阅读</button>
     </article>
-  `).join("");
+  `).join("") || '<p class="post-count">没有匹配的文章，可以换个关键词试试。</p>';
 }
 
 async function openPost(slug) {
@@ -109,9 +119,12 @@ chips.forEach((chip) => {
   chip.addEventListener("click", () => {
     chips.forEach((item) => item.classList.remove("active"));
     chip.classList.add("active");
-    renderPosts(chip.dataset.filter);
+    activeFilter = chip.dataset.filter;
+    renderPosts();
   });
 });
+
+postSearch.addEventListener("input", renderPosts);
 
 function startSignalField() {
   const canvas = document.querySelector("#signal-field");
