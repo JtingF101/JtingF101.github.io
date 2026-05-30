@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="蒋廷锋的个人博客：LLM、AI 应用工程、智能体、机器人、潜水与技术观察。">
+    <title>蒋廷锋 | AI 应用工程师</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark">JF</span>
+        <span>Jiang Ting Feng</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#posts">博客</a>
+        <a href="#lab">写作台</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LLM · Knowledge Graph · Medical NLP · Robotics</p>
+          <h1>把 AI 从论文、系统和真实场景之间接起来。</h1>
+          <p class="hero-lede">
+            我是蒋廷锋，计算机科学硕士在读，关注 LLM 应用工程、知识图谱代理、医疗 NLP、智能体与机器人。
+            这里记录我对 AI 发展、Agent 架构、机器人实践、潜水新闻和工程落地的观察。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#posts">阅读文章</a>
+            <a class="button ghost" href="https://github.com/JtingF101" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="个人状态">
+          <div class="status-orbit">
+            <span>RAG</span>
+            <span>KG</span>
+            <span>CDSS</span>
+            <span>Robot</span>
+          </div>
+          <dl class="quick-facts">
+            <div>
+              <dt>当前研究</dt>
+              <dd>LLM 增强知识图谱代理用于甲状腺细胞病理诊断</dd>
+            </div>
+            <div>
+              <dt>工程经验</dt>
+              <dd>医疗知识图谱、CDSS、NER、图像分割、模型服务化</dd>
+            </div>
+            <div>
+              <dt>生活侧信号</dt>
+              <dd>潜水教练、冲浪、活动策划与志愿服务</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section id="about" class="section about-grid">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2>一个偏工程落地的 AI 探索者</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            我曾在医疗 AI 公司担任算法工程师，参与医疗垂直领域知识建模、临床决策支持系统、Transformer 预标注流程、
+            甲状腺细胞图像分类与分割，以及医院环境中的 AI 系统部署。现在在马来亚大学攻读计算机科学硕士，研究方向聚焦
+            大语言模型、知识图谱与医学诊断代理。
+          </p>
+          <div class="metric-row">
+            <div><strong>30%-70%</strong><span>NLP 标注效率提升</span></div>
+            <div><strong>0.32 → 0.78</strong><span>NER F1 改进</span></div>
+            <div><strong>80%+</strong><span>医学图像分类准确率</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section timeline-section">
+        <p class="section-kicker">Experience</p>
+        <h2>履历切片</h2>
+        <div class="timeline">
+          <article>
+            <time>2024 - Now</time>
+            <h3>Universiti Malaya · Computer Science M.Sc.</h3>
+            <p>智能医学诊断研究方向，负责 LLM-enhanced Knowledge Graph Agent for Thyroid Cytopathology Diagnosis。</p>
+          </article>
+          <article>
+            <time>2021 - 2023</time>
+            <h3>四川XX医疗科技 · 算法工程师</h3>
+            <p>构建医疗知识图谱、CDSS 推理模块、医疗 NLP 数据流程、多模态甲状腺细胞智能标注系统。</p>
+          </article>
+          <article>
+            <time>2020 - 2022</time>
+            <h3>类脑实验室 & 10511 工作室</h3>
+            <p>参与脑信息探测研究并发表论文；带队开发智慧农场 App 与电商类微信小程序。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="posts" class="section posts-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Writing</p>
+            <h2>最新文章</h2>
+          </div>
+          <div class="filters" role="group" aria-label="文章分类筛选">
+            <button class="chip active" type="button" data-filter="all">全部</button>
+            <button class="chip" type="button" data-filter="AI发展">AI发展</button>
+            <button class="chip" type="button" data-filter="智能体">智能体</button>
+            <button class="chip" type="button" data-filter="机器人">机器人</button>
+            <button class="chip" type="button" data-filter="潜水新闻">潜水新闻</button>
+          </div>
+        </div>
+        <div id="post-list" class="post-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="reader" class="reader" hidden>
+        <div class="reader-toolbar">
+          <button id="close-reader" class="button ghost" type="button">返回列表</button>
+          <span id="reading-time"></span>
+        </div>
+        <article id="post-content" class="post-content"></article>
+      </section>
+
+      <section id="lab" class="section lab-section">
+        <div>
+          <p class="section-kicker">Blog Ops</p>
+          <h2>写作台</h2>
+          <p>
+            这个站点把博客内容拆成 Markdown 文件和一个轻量索引。以后新增文章可以用脚本生成草稿，也可以手动复制模板。
+          </p>
+        </div>
+        <div class="ops-grid">
+          <article class="ops-card">
+            <h3>一条命令生成草稿</h3>
+            <code>node scripts/new-post.mjs "文章标题" "智能体"</code>
+            <p>脚本会在 <span>posts/</span> 下创建 Markdown，并自动更新 <span>posts.json</span>。</p>
+          </article>
+          <article class="ops-card">
+            <h3>推荐栏目</h3>
+            <ul>
+              <li>AI发展：模型、产业与产品观察</li>
+              <li>智能体：Agent 架构、工具调用、记忆与评测</li>
+              <li>机器人：具身智能、控制、传感器与仿真</li>
+              <li>潜水新闻：潜点、装备、安全和海洋保护</li>
+            </ul>
+          </article>
+          <article class="ops-card">
+            <h3>发布到 GitHub Pages</h3>
+            <p>推送到 GitHub 后，在仓库 Settings → Pages 选择 main 分支根目录即可发布。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div>
+        <strong>蒋廷锋</strong>
+        <p>AI Engineer · LLM / KG / Medical NLP</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:tingfengj110111@163.com">Email</a>
+        <a href="https://github.com/JtingF101" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

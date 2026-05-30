@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "hello-ai-field-notes",
+    "title": "这个博客会写什么",
+    "category": "AI发展",
+    "date": "2026-05-30",
+    "reading": "3 min",
+    "excerpt": "从医疗 AI、知识图谱、智能体、机器人到潜水新闻，把长期关注的主题整理成可迭代的公开笔记。",
+    "file": "posts/hello-ai-field-notes.md"
+  },
+  {
+    "slug": "agent-notes-kg-rag",
+    "title": "智能体不是聊天框，而是一套行动系统",
+    "category": "智能体",
+    "date": "2026-05-30",
+    "reading": "4 min",
+    "excerpt": "用知识图谱、检索、工具调用和评测，把 Agent 从 demo 拉向稳定可用的工程系统。",
+    "file": "posts/agent-notes-kg-rag.md"
+  },
+  {
+    "slug": "diving-log-format",
+    "title": "我想怎样记录潜水新闻",
+    "category": "潜水新闻",
+    "date": "2026-05-30",
+    "reading": "2 min",
+    "excerpt": "潜点、装备、安全、海洋保护和 AI 在水下场景中的可能性，都可以成为这个栏目的观察对象。",
+    "file": "posts/diving-log-format.md"
+  }
+]
