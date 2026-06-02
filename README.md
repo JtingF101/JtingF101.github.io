@@ -4,7 +4,7 @@
 
 ## 线上预览
 
-线上地址：<https://jtingf101.github.io/FengBlog/?v=2>
+线上地址：<https://jtingf101.github.io>
 
 ## 新增文章
 
