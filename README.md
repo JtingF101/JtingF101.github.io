@@ -2,13 +2,7 @@
 
 这是一个 GitHub Pages 友好的纯静态个人博客，内容方向包括 AI 发展、智能体、机器人、潜水新闻和背包旅行。
 
-## 本地预览
-
-```bash
-python3 -m http.server 8000
-```
-
-然后打开 http://localhost:8000/FengBlog/?v=2。
+## 线上预览
 
 线上地址：<https://jtingf101.github.io/FengBlog/?v=2>
 
