@@ -20,7 +20,6 @@
         <a href="#research">研究</a>
         <a href="#radar">雷达</a>
         <a href="#posts">博客</a>
-        <a href="#add-post">发文章</a>
       </nav>
     </header>
 
@@ -218,32 +217,6 @@
           <span id="reading-time"></span>
         </div>
         <article id="post-content" class="post-content"></article>
-      </section>
-
-      <section id="add-post" class="section add-post-section">
-        <div>
-          <p class="section-kicker">How To Publish</p>
-          <h2>最简便的发文章方式</h2>
-          <p>
-            你只需要运行一条命令生成草稿，然后把 Markdown 正文写完、推送到 GitHub，网站会自动更新。
-          </p>
-        </div>
-        <div class="ops-grid">
-          <article class="ops-card">
-            <h3>1. 生成新文章</h3>
-            <code>node scripts/new-post.mjs "文章标题" "背包旅行"</code>
-            <p>分类可以写 <span>AI发展</span>、<span>智能体</span>、<span>机器人</span>、<span>潜水新闻</span>、<span>背包旅行</span>。</p>
-          </article>
-          <article class="ops-card">
-            <h3>2. 写正文</h3>
-            <p>打开脚本创建的 <span>posts/xxx.md</span>，直接用 Markdown 写文章。标题、列表、小标题都可以保留模板格式。</p>
-          </article>
-          <article class="ops-card">
-            <h3>3. 发布</h3>
-            <code>git add . && git commit -m "Add new post" && git push</code>
-            <p>推送后 GitHub Pages 会自动刷新，通常几十秒内线上可见。</p>
-          </article>
-        </div>
       </section>
 
       <section class="section changelog-section">

@@ -155,7 +155,6 @@ h3 {
 
 .hero-lede,
 .about-copy p,
-.add-post-section p,
 .radar-section p,
 .section-note {
   color: #44524e;
@@ -265,7 +264,6 @@ h3 {
 .quick-facts div,
 .timeline article,
 .post-card,
-.ops-card,
 .research-card,
 .radar-board article {
   border: 1px solid var(--line);
@@ -334,14 +332,12 @@ h3 {
 
 .timeline article,
 .post-card,
-.ops-card,
 .research-card {
   padding: 22px;
 }
 
 .timeline time,
 .post-meta,
-.ops-card p,
 .post-card p,
 .research-card p {
   color: var(--muted);
@@ -356,7 +352,6 @@ h3 {
 .research-section,
 .timeline-section,
 .posts-section,
-.add-post-section,
 .changelog-section {
   border-top: 1px solid var(--line);
 }
@@ -659,8 +654,7 @@ h3 {
   line-height: 1.9;
 }
 
-.post-content code,
-.ops-card code {
+.post-content code {
   display: block;
   overflow-x: auto;
   padding: 14px;
@@ -668,29 +662,6 @@ h3 {
   color: #f5efe5;
   background: #17211f;
   white-space: nowrap;
-}
-
-.add-post-section {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 34px;
-  align-items: start;
-}
-
-.ops-grid {
-  display: grid;
-  gap: 14px;
-}
-
-.ops-card span {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-
-.ops-card ul {
-  margin: 0;
-  padding-left: 20px;
-  color: #44524e;
-  line-height: 1.8;
 }
 
 .changelog-section {
@@ -777,7 +748,6 @@ h3 {
 
   .hero,
   .about-grid,
-  .add-post-section,
   .radar-section,
   .changelog-section {
     grid-template-columns: 1fr;
