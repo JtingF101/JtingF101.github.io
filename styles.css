@@ -451,147 +451,230 @@ h3 {
 .radar-board {
   display: grid;
   position: relative;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(128px, auto);
-  gap: 16px;
-  padding: 28px;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(360px, 1.22fr);
+  gap: 18px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
-    radial-gradient(circle at 50% 50%, rgba(14, 117, 108, 0.16) 0 2px, transparent 3px),
-    radial-gradient(circle at 50% 50%, transparent 0 112px, rgba(14, 117, 108, 0.18) 113px 114px, transparent 116px),
-    radial-gradient(circle at 50% 50%, transparent 0 194px, rgba(223, 107, 79, 0.16) 195px 196px, transparent 198px),
+    radial-gradient(circle at 22% 28%, rgba(14, 117, 108, 0.14), transparent 18rem),
+    radial-gradient(circle at 92% 78%, rgba(223, 107, 79, 0.12), transparent 20rem),
     linear-gradient(90deg, rgba(23, 33, 31, 0.05) 1px, transparent 1px),
     linear-gradient(0deg, rgba(23, 33, 31, 0.05) 1px, transparent 1px),
     rgba(255, 255, 255, 0.42);
-  background-size: auto, auto, auto, 26px 26px, 26px 26px, auto;
+  background-size: auto, auto, 26px 26px, 26px 26px, auto;
   box-shadow: var(--shadow);
   overflow: hidden;
-}
-
-.radar-board::before {
-  content: "FIELD NOTES";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  display: grid;
-  width: 164px;
-  height: 164px;
-  place-items: center;
-  border: 1px solid rgba(23, 33, 31, 0.15);
-  border-radius: 50%;
-  color: rgba(23, 33, 31, 0.58);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(238, 245, 241, 0.76)),
-    var(--surface);
-  box-shadow: 0 18px 48px rgba(23, 33, 31, 0.1);
-  font-size: 12px;
-  font-weight: 900;
-  transform: translate(-50%, -50%);
 }
 
 .radar-board::after {
   content: "";
   position: absolute;
-  inset: 28px;
+  inset: 18px;
   border: 1px solid rgba(23, 33, 31, 0.08);
   border-radius: 8px;
   pointer-events: none;
 }
 
-.radar-board article {
+.radar-visual {
   position: relative;
   z-index: 1;
-  display: flex;
-  min-height: 188px;
-  flex-direction: column;
-  padding: 20px 20px 18px;
+  display: grid;
+  min-height: 520px;
+  align-content: space-between;
+  padding: 24px;
+  border: 1px solid rgba(23, 33, 31, 0.11);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(23, 33, 31, 0.9), rgba(23, 33, 31, 0.78)),
+    #17211f;
+  color: white;
+  overflow: hidden;
+}
+
+.radar-visual::before {
+  content: "OBSERVATION MAP";
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.radar-visual::after {
+  content: "";
+  position: absolute;
+  inset: auto -38px -44px auto;
+  width: 190px;
+  height: 190px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+
+.radar-scope {
+  position: relative;
+  display: grid;
+  width: min(100%, 310px);
+  aspect-ratio: 1;
+  place-items: center;
+  margin: 34px auto 28px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle, transparent 0 30%, rgba(255, 255, 255, 0.12) 30.4% 30.9%, transparent 31.3%),
+    radial-gradient(circle, transparent 0 58%, rgba(255, 255, 255, 0.12) 58.4% 58.9%, transparent 59.3%),
+    conic-gradient(from -40deg, rgba(14, 117, 108, 0.42), transparent 36%, rgba(223, 107, 79, 0.24), transparent 66%, rgba(183, 137, 47, 0.32), rgba(14, 117, 108, 0.42));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), 0 28px 64px rgba(0, 0, 0, 0.18);
+}
+
+.radar-scope::before,
+.radar-scope::after {
+  content: "";
+  position: absolute;
+  inset: 50% 8% auto;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.radar-scope::after {
+  transform: rotate(90deg);
+}
+
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, rgba(125, 227, 213, 0.34), transparent 23%);
+  animation: spin 16s linear infinite;
+}
+
+.radar-scope strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: white;
+  font-size: 76px;
+  line-height: 0.86;
+}
+
+.radar-scope small {
+  position: absolute;
+  z-index: 1;
+  bottom: 76px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.radar-dot {
+  position: absolute;
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.08);
+}
+
+.dot-ai { left: 31%; top: 22%; background: var(--teal); }
+.dot-agent { right: 24%; top: 31%; background: var(--coral); }
+.dot-robot { left: 25%; bottom: 28%; background: var(--blue); }
+.dot-dive { right: 29%; bottom: 22%; background: var(--gold); }
+.dot-travel { left: 52%; top: 12%; background: #5f7f45; }
+
+.radar-readout {
+  display: grid;
+  gap: 8px;
+}
+
+.radar-readout span {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.radar-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+}
+
+.radar-board article {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(78px, auto) 1fr;
+  column-gap: 16px;
+  align-items: start;
+  min-height: 96px;
+  padding: 16px 18px;
   border-color: var(--accent-line);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.62)),
+    linear-gradient(90deg, var(--accent-soft), rgba(255, 255, 255, 0.78) 34%, rgba(255, 255, 255, 0.62)),
     var(--surface);
-  box-shadow: 0 18px 42px rgba(23, 33, 31, 0.1);
+  box-shadow: 0 12px 30px rgba(23, 33, 31, 0.07);
   overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.radar-board article:nth-child(1) {
-  grid-column: 1 / span 5;
-  grid-row: 1;
-}
-
-.radar-board article:nth-child(2) {
-  grid-column: 8 / span 5;
-  grid-row: 1;
-}
-
-.radar-board article:nth-child(3) {
-  grid-column: 1 / span 4;
-  grid-row: 2;
-}
-
-.radar-board article:nth-child(4) {
-  grid-column: 9 / span 4;
-  grid-row: 2;
-}
-
-.radar-board article:nth-child(5) {
-  grid-column: 4 / span 6;
-  grid-row: 3;
-}
-
 .radar-board article:hover {
-  transform: translateY(-5px);
+  transform: translateX(5px);
   border-color: var(--accent);
-  box-shadow: 0 24px 58px rgba(23, 33, 31, 0.15);
+  box-shadow: 0 18px 42px rgba(23, 33, 31, 0.12);
 }
 
 .radar-board article::before {
   content: var(--i);
   position: absolute;
   right: 18px;
-  top: 16px;
+  bottom: 12px;
   color: var(--accent);
-  font-size: 42px;
+  font-size: 34px;
   font-weight: 900;
   line-height: 1;
-  opacity: 0.18;
+  opacity: 0.14;
 }
 
 .radar-board article::after {
   content: "";
   position: absolute;
-  left: 18px;
-  bottom: 18px;
-  width: 72px;
-  height: 4px;
-  border-radius: 50%;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  opacity: 0.62;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--accent);
+  opacity: 0.72;
 }
 
 .radar-board span {
-  display: inline-block;
-  width: fit-content;
-  margin-bottom: 18px;
-  padding: 7px 10px;
-  border: 1px solid var(--accent-line);
-  border-radius: 999px;
+  display: grid;
+  min-height: 64px;
+  align-items: center;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
   color: var(--accent);
   background: var(--accent-soft);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
 }
 
 .radar-board strong {
   display: block;
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin: 0 48px 6px 0;
+  font-size: 19px;
   line-height: 1.28;
 }
 
 .radar-board p {
-  margin-bottom: 24px;
+  grid-column: 2;
+  margin: 0 40px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 .section-heading {
@@ -853,18 +936,12 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .radar-board article,
-  .radar-board article:nth-child(1),
-  .radar-board article:nth-child(2),
-  .radar-board article:nth-child(3),
-  .radar-board article:nth-child(4),
-  .radar-board article:nth-child(5) {
-    grid-column: auto;
-    grid-row: auto;
+  .radar-visual {
+    min-height: 390px;
   }
 
-  .radar-board::before {
-    display: none;
+  .radar-scope {
+    width: min(100%, 260px);
   }
 
   .post-tools {
